@@ -31,4 +31,14 @@ public class UserController {
         return"User deleted successfully";
     }
 
+    @GetMapping("/{id}")
+    public User getUserByid(@PathVariable String id) {
+        return userService.getUserById(id);
+    }
 
+    @PutMapping("{id}")
+    public String updateUser (@PathVariable String id, @RequestBody User request) {
+        userService.updateUser(id, request);
+        return "User updated successfully";
+    }
+}
